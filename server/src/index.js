@@ -1,28 +1,27 @@
 const express = require("express")
+const cors = require("cors")
 const logger = require("./middlewares/logger")
 const app = express()
 
 app.set("port", process.env.PORT || 3001)
+app.use(cors())
 app.use(express.json())
 app.use(logger)
 
 let notes = [
 	{
 		"id": 1,
-		"name"  : "pablo",
-		"pass" : "pass",
+		"description"  : "pablo",
 		"date" : new Date().toISOString(),
 	},
 	{
 		"id": 2,
-		"name"  : "rubb",
-		"pass" : "pass",
+		"description"  : "rubb",
 		"date" : new Date().toISOString(),
 	},
 	{
 		"id": 3,
-		"name"  : "johnny",
-		"pass" : "pass",
+		"description"  : "johnny",
 		"date" : new Date().toISOString(),
 	}
 ]
@@ -44,9 +43,10 @@ app.get("/api/notes/:id", (req, res) =>{
 
 app.post("/api/notes", (req, res)=>{
 	const note = req.body
-	if(!note || !note.name)
+    console.log(req.body)
+	if(!note || !note.description)
 		return res.status(400).json({
-			error : "note.name is missing",
+			error : "note.description is missing",
 		})
 	const newNote = {
 		id : notes.length + 1,
@@ -54,7 +54,7 @@ app.post("/api/notes", (req, res)=>{
 		...note
 	}
 	notes = [...notes, newNote]
-	res.status(201).json(newNote[notes.length - 1])
+	res.status(201).json(notes[notes.length - 1])
 })
 
 app.delete("/api/notes/:id", (req, res) =>{
