@@ -1,6 +1,6 @@
 {
     "scripts": {
-        "start-backend" : "cd server/ && node src/index.js",
+        "start-backend" : "cd server/ && npm start",
         "start-frontend" : "cd client/ && node src/index.js"
     }
 }
