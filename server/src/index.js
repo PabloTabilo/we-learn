@@ -27,7 +27,7 @@ let notes = [
 ]
 
 app.get("/", (req, res) =>{
-	res.send("server is live!")
+	res.status(200).send("<h1>server is live!</h1>")
 })
 
 app.get("/api/notes", (req, res) =>{
