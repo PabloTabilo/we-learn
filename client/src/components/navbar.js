@@ -27,41 +27,44 @@ const Navbar = () => {
                 <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
                     <div className="container-fluid">
                         <Link className="navbar-brand" to="/" >HOME</Link>
-                    </div>
-                    <div className="collapse navbar-collapse" id="navbarNav">
-                        <ul className="navbar-nav">
-                            <li className="nav-item">
-                                <Link className="navbar-brand" to="/register" >Register</Link>
-                            </li>
-                            <li className="nav-item">
-                                <Link className="navbar-brand" to="/login" >Login</Link>
-                            </li>
-                            <li className="nav-item">
-                                <Link className="navbar-brand" to="/notes" >Notes</Link>
-                            </li>
-                        </ul>
-                    </div>
-                    {(isUser || isAdmin) && (
-                    <li className="nav-item dropdown">
-                    <button className="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-                        Options
-                    </button>
-                    <ul className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        {isUser && (
-                        <li>
-                            <Link to="/transactions" className="dropdown-item">Trx</Link>
-                        </li>
-                        )}
-                        {isAdmin && (
+                        <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <span className="navbar-toggler-icon"></span>
+                        </button>
+                        <div className="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+                                <li className="nav-item">
+                                    <Link className="nav-link" to="/register" >Register</Link>
+                                </li>
+                                <li className="nav-item">
+                                    <Link className="nav-link" to="/login" >Login</Link>
+                                </li>
+                                <li className="nav-item">
+                                    <Link className="nav-link" to="/notes" >Notes</Link>
+                                </li>
+                            </ul>
+                        </div>
+                        {(isUser || isAdmin) && (
+                        <li className="nav-item dropdown">
+                        <button className="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                            Options
+                        </button>
+                        <ul className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            {isUser && (
                             <li>
-                                <Link to="/dashboard" className="dropdown-item">Dashboard</Link>
+                                <Link to="/transactions" className="dropdown-item">Trx</Link>
                             </li>
-                        )}
-                        <div className="dropdown-divider"></div>
-                        <li><button className="dropdown-item" onClick={logout}>Log out</button></li>
-                    </ul>
-                </li>
-                )}
+                            )}
+                            {isAdmin && (
+                                <li>
+                                    <Link to="/dashboard" className="dropdown-item">Dashboard</Link>
+                                </li>
+                            )}
+                            <div className="dropdown-divider"></div>
+                            <li><button className="dropdown-item" onClick={logout}>Log out</button></li>
+                        </ul>
+                    </li>
+                    )}
+                    </div>
                 </nav>
             </header>
             <Routes>

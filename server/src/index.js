@@ -31,7 +31,7 @@ app.get("/", (req, res) =>{
 })
 
 app.get("/api/notes", (req, res) =>{
-	res.json(notes)
+	res.status(200).json(notes)
 })
 
 app.get("/api/notes/:id", (req, res) =>{
@@ -68,7 +68,6 @@ app.use((req, res) => {
         message : "Not found"
     })
 })
-
 
 app.listen(app.get("port"), () =>{
 	console.log("Server is on ", app.get("port"))
