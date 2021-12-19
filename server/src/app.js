@@ -15,7 +15,7 @@ app.use(session({
     secret: "secretKey",
     resave: false,
     saveUninitialized: false,
- }))
+}))
 
 app.get("/", (req, res) =>res.status(200).send("<h1>server is live!</h1>"))
 

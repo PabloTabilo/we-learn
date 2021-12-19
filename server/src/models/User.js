@@ -12,10 +12,22 @@ const userSchema = new Schema({
     password: {
         type: String,
         required : true
-    }
+    },
+    concepts: [
+        {
+            type: Schema.Types.ObjectId,
+            ref : "Concept"
+        }
+    ]
 },{
     timestamp : true,
     versionKey: false
+})
+
+userSchema.set("toJSON", {
+    transform : (document, returnedObject) => {
+        delete returnedObject.password
+    }
 })
 
 module.exports = model('User', userSchema);

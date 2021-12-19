@@ -1,0 +1,7 @@
+POST http://localhost:3001/api/concepts
+Content-type: application/json
+
+{
+    "id" : "61be603a22f453487466d0f4",
+    "conceptName" : "Probability"
+}

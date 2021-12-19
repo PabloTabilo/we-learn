@@ -1,0 +1,7 @@
+
+DELETE  http://localhost:3001/api/concepts/61be762a5cbca179994f843a
+Content-type: application/json
+
+{
+    "id" : "61be603a22f453487466d0f4"
+}
